@@ -11,13 +11,13 @@ function second_function() {
 //"innerHTML mods the content of an HTML element"//
 
 //FUNCTION CHALLENGE//
-
-var x = myFunction(3, 7);
-document.getElementById("demo").innerHTML = x;
-
-function myFunction(a, b) {
-    return a * b;
+function myFunction() {
+    var x = "This is the challenge function."
+    document.getElementById("demo").innerHTML = x;
 }
+
+var x = myFunction();
+document.getElementById("demo").innerHTML = x;
     //note: apparently, one thing wrong with something in JS//
     //such as an undefined variable//
     //causes the rest of the code to not work?//
