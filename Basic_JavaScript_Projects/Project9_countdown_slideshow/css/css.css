@@ -1,0 +1,88 @@
+
+* {box-sizing: border-box;} /*imma be frank idk what this does*/
+
+/*----SLIDESHOW CONTAIN---*/
+img {
+    width: 100%;
+    height: 1000px;
+}
+
+.slide-contain {
+    max-width: 100%;
+    height: 500px;
+    position: relative;
+    margin: auto;
+}
+
+.slide {
+    display: none;
+}
+/*hides images by default, deactivate it and everything dies*/
+
+/*next and prev buttons*/
+.prev, .next {
+    color: #fff;
+    position: absolute;
+    top: 60%;
+    width: auto;
+    margin-top: -15px;
+    padding: 16px;
+    transition: 0.6s ease;
+    border-radius: 0 2px 2px 0;
+    cursor: pointer;
+    user-select: none;
+} /*specifies whether the txt of an element can be selected*/
+/*ideally would like to make the buttons taller/bigger*/
+
+/*position next button to the right*/
+.next {
+    right: 0;
+    border-radius: 3px 0 0 3px;
+}
+
+/*optional hover effect*/
+.prev:hover, .next:hover {
+
+}
+
+/*caption text*/
+.txt {
+    color: #fff;
+    font-size: 50px;
+    padding: 8px 12px;
+    position: absolute;
+    bottom: 6px;
+    width: 100%;
+    text-align: center;
+    z-index: 100;
+} 
+
+/*numb txt 1-3*/
+.numb-txt {
+    color: lightblue;
+    text-shadow: 2px 2px 2px black;
+    font-size: 17px;
+    padding: 8px 12px; /*trlb*/
+    position: absolute;
+    top: 0;
+    z-index: 100;
+}
+
+/*w3 has the dots and bullets under here*/
+
+/*fade animation*/
+.fade {
+    animation-name: fade;
+    animation-duration: 1s;
+}
+
+/*keyframes for animation*/
+@keyframes fade {
+    from {opacity: .5;}
+    to {opacity: 1;}
+}
+
+/*notes: running into an interesting development
+the imgs don't load when the page does, thusly the
+slideshow doesn't until you magically manage to click
+one of the prev or next buttons*/
