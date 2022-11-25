@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="utf-8">
+        <script src="./JS/javascript_2.js" defer></script>
+        <link rel="stylesheet" type="text/css" href="CSS/css_1.css">
+    </head>
+    <body>
+        <div class="box">
+            <form name="yourInfo" action="/action_page.php" onsubmit="return validate()" method="post">
+                <!--w3 had the onsubmit at the top of the form, this alone doesn't seem to work-->
+                <label for="name1">First Name:</label><br>
+                <input type="text" id="name1"><br>
+                <label for="name2">Last Name:</label><br>
+                <input type="text" id="name2"><br>
+                <label for="age">Your Age:</label><br>
+                <input type="number" id="age"><br>
+
+                <!--remember to have submit inside the form-->
+                <input type="submit" value="Submit" onsubmit="validate()">
+            </form>
+        </div>
+
+        <!--JS for Numb Validation-->
+        <div class="numb_input">
+            <p>Input Number between 1 and 10;</p>
+
+            <input id="number">
+            <button type="button" onclick="numb_valid()">Submit</button>
+            <p id="validation2"></p>
+        </div>
+    </body>
+</html>
