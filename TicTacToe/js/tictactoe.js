@@ -1,9 +1,15 @@
+//CURRENT ISSUES//
+    //firefox has img clipping issue, works fine in chrome browser//
+    //ref error "resetGame undefined"//
+
+//BEGIN TIC TAC TOE TANGO CODE//
+
 //this var keeps track of whose turn it is//
 let activePlayer = 'X';
 //array stores an array of moves, use to determine win conditions//
 let selectedSquares = [];
 
-//function is for placing an x or 0 in a square//
+//function is for placing an x or O in a square//
 function placeXorO(squareNumber) {
     //this condition ensures a square hasn't been selected already//
     //.some method used to check each element of selectSquare array//
@@ -14,28 +20,28 @@ function placeXorO(squareNumber) {
         //condition checks who's turn it is//
         if (activePlayer === 'X') {
             //if active player is equal to 'X' the x.png is placed in HTML//
-            select.style.backgroundImage = 'url("img/x.png")';
+            select.style.backgroundImage = 'url("./imgs/x.png")';
         } else {
-            //if activeplayer is equal to '0' the o.png is placed in HTML//
-            select.style.backgroundImage = 'url("img/o.png")';
+            //if activeplayer is equal to 'O' the o.png is placed in HTML//
+            select.style.backgroundImage = 'url("./imgs/o.png")';
         }
         //squareNumber and active player are concatenated together and added to the arrayt//
         selectedSquares.push(squareNumber + activePlayer);
-        //calls a function to check for any wind conditions//
+        //calls a function to check for any win conditions//
         checkWinConditions();
         //condition is for changing the active player//
         if (activePlayer === 'X') {
             //if active player is 'X' change it to '0'.//
-            activePlayer = '0';
+            activePlayer = 'O';
             //if active player is anything other than 'x'//
         } else {
             //change active player to 'x'//
             activePlayer = 'X';
         }
         //this function plays placement sound//
-        Audio('./media/place.mp3');
+        audio('./media/place.mp3');
         //condition checks to see if it is the computer's turn//
-        if (activePlayer === "0") {
+        if (activePlayer === "O") {
             //disables clicking for computer's turn//
             disableClick();
             //function waits 1 second before the computer places the image and enables click//
@@ -88,7 +94,7 @@ function checkWinConditions() {
     //code executes//
     else if (selectedSquares.length >= 9) {
         //plays the tie game sound//
-        Audio('./media/tie.mp3');
+        audio('./media/tie.mp3');
         //function sets a .3 sec timer before resetGame is called//
         setTimeout(function () { resetGame(); }, 500);
     }
@@ -136,3 +142,108 @@ function computersTurn() {
 // 3 functions are undefined, preventing the program from running//
 // checkWinCondtions() that checks which player wins based on where X and 0 are// 
 //audio() and disableClick()//
+
+//PART 6 disableClick and computersTurn//
+
+//function makes body element temp unclickable//
+function disableClick() {
+    //makes body unclickable//
+    body.style.pointerEvents = 'none';
+    //makes body clickable again after 1 second//
+    setTimeout(function () { body.style.pointerEvents = 'auto'; }, 1000);
+} //syntax error, missing ;, fixed//
+
+//function takes string parameter of the path set earlier for placement sound//
+function audio(audioURL) {
+    //create a new audio object and pass the path as a paremeter//
+    let audio = new Audio(audioURL);
+    //play method plays the audio sound//
+    audio.play();
+}
+
+//PART 7//
+//drawWinLine called when win condition is met//
+
+//function uses HTML canvas to draw win lines//
+function drawWinLine(coordX1, coordY1, coordX2, coordY2) {
+    //accesses HTML canvas element//
+    const canvas = document.getElementById('win-lines');
+    //line gives us access to methods and properties to use on canvas//
+    const c = canvas.getContext('2d');
+    //line indicates where start of a lines x axis is//
+    let x1 = coordX1,
+        //line indicates start of y axis//
+        y1 = coordY1,
+        //end of lines x axis is//
+        x2 = coordX2,
+        //end of lines x axis is//
+        y2 = coordY2,
+        x = x1,
+        //var stores temp y axis data we update in your animation loop//
+        y = y1;
+
+
+    //function interacts w/ canvas//
+    function animateLineDrawing() {
+        //var creates a loop//
+        const animationLoop = requestAnimationFrame(animateLineDrawing);
+        //method clears content from last loop iteration//
+        c.clearRect(0, 0, 608, 608);
+        //method starts a new path//
+        c.beginPath();
+        //method moves us to starting point in our line//
+        c.moveTo(x1, y1);
+        //method indicates end point in our line//
+        c.lineTo(x, y);
+        //method sets width of line//
+        c.lineWidth = 10;
+        //method sets color of line//
+        c.strokeStyle = 'rgba(70, 255, 33, .8)';
+        //draws everything laid out above//
+        c.stroke();
+        //condition checks if we've reached the endpoints//
+        if (x1 <= x2 && y1 <= y2) {
+            //condition adds 10 to prev end x endpoint//
+            if (x < x2) { x += 10; }
+            //condition adds 10 to prev end y endpoint//
+            if (y < y2) {y += 10; }
+            //condition is similar to the one above//
+            //necessary for the 6, 4, 2 win conditions//
+            if (x >= x2 && y >= y2) { cancelAnimationFrame(animationLoop);}
+        }
+        //condition similar to one above//
+        //necessary for 6 4 2 win conditions//
+        if (x1 <= x2 && y1 >= y2) {
+            if (x < x2) { x += 10; }
+            if (y > y2) { y -= 10; }
+            if (x >= x2 && y <= y2) { cancelAnimationFrame(animationLoop);}
+        }
+    }
+
+    //function clears canvas after win line is drawn//
+    function clear() {
+        //line starts animation loop//
+        const animationLoop = requestAnimationFrame(clear);
+        //clears canvas//
+        c.clearRect(0, 0, 608, 608);
+        //this line stops our animation loop//
+        cancelAnimationFrame(animationLoop);
+    }
+
+    //line disallows clicking while the win sound is playing//
+    disableClick();
+    //line plays the win sounds//
+    audio('./media/winGame.mp3');
+    //line calls main animation loop//
+    animateLineDrawing();
+    //line waits 1 second, clears canvas, resets game, allows clicking again//
+    setTimeout( function () { clear(); resetGame(); }, 1000);
+}
+
+    //notes://
+    //checkWinConditions() checks every possible winning condition//
+    //second if statement in animateLineDrawing() needed in case 6 4 2 win diagonally right to left//
+    //gotta watch for those ed's//
+
+//PART 8//
+//game stuck in a loop that doesn't end, add canvas reset auto through resetGame()//
