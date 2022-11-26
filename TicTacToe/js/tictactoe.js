@@ -247,3 +247,16 @@ function drawWinLine(coordX1, coordY1, coordX2, coordY2) {
 
 //PART 8//
 //game stuck in a loop that doesn't end, add canvas reset auto through resetGame()//
+
+//function resets game in the event of a tie or win//
+function resetGame() {
+    //for loop interates through each HTML square element//
+    for (let i = 0; i < 9; i++) {
+        //var gets the HTML element i//
+        let square = document.getElementById(String(i));
+        //removes elements background image//
+        square.style.backgroundImage = '';
+    }
+    //resets array so it is empty, can start over//
+    selectedSquares = [];
+}
