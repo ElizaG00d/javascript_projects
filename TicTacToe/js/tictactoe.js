@@ -1,8 +1,7 @@
 //CURRENT ISSUES//
     //firefox has img clipping issue, works fine in chrome browser//
-    //ref error "resetGame undefined"//
 
-//BEGIN TIC TAC TOE TANGO CODE//
+//BEGIN TIC TAC TOE TANGO JS//
 
 //this var keeps track of whose turn it is//
 let activePlayer = 'X';
@@ -108,7 +107,7 @@ function checkWinConditions() {
         //tru is returned and else if condition executes drawLine//
         if (a === true && b === true && c === true) return true;
     }
-} //tried to run in browser after this, nothing happened onclick//
+} 
 
 
 
@@ -133,17 +132,18 @@ function computersTurn() {
 }
 
 //notes://
-//keep in mind js is case sensitive//
-//ensure in placeXorO(squareNumber) you have used the uppercase O and not lower case o or the number 0//
-//ensure you used correct casing for function names//
-//make sure to have used the correct symbols and not missing any open or close curly brackets//
+    //keep in mind js is case sensitive//
+    //ensure in placeXorO(squareNumber) you have used the uppercase O and not lower case o or the number 0//
+    //ensure you used correct casing for function names//
+    //make sure to have used the correct symbols and not missing any open or close curly brackets//
 
 //part 5 notes//
-// 3 functions are undefined, preventing the program from running//
-// checkWinCondtions() that checks which player wins based on where X and 0 are// 
-//audio() and disableClick()//
+    // 3 functions are undefined, preventing the program from running//
+    // checkWinCondtions() that checks which player wins based on where X and 0 are// 
+    //audio() and disableClick()//
 
-//PART 6 disableClick and computersTurn//
+//PART 6//
+    //disableClick and computersTurn//
 
 //function makes body element temp unclickable//
 function disableClick() {
@@ -151,7 +151,8 @@ function disableClick() {
     body.style.pointerEvents = 'none';
     //makes body clickable again after 1 second//
     setTimeout(function () { body.style.pointerEvents = 'auto'; }, 1000);
-} //syntax error, missing ;, fixed//
+} //syntax error, missing ";", fixed//
+    //came up as pointer-event parsing issue//
 
 //function takes string parameter of the path set earlier for placement sound//
 function audio(audioURL) {
@@ -162,7 +163,7 @@ function audio(audioURL) {
 }
 
 //PART 7//
-//drawWinLine called when win condition is met//
+    //drawWinLine called when win condition is met//
 
 //function uses HTML canvas to draw win lines//
 function drawWinLine(coordX1, coordY1, coordX2, coordY2) {
@@ -197,7 +198,7 @@ function drawWinLine(coordX1, coordY1, coordX2, coordY2) {
         c.lineTo(x, y);
         //method sets width of line//
         c.lineWidth = 10;
-        //method sets color of line//
+        //method sets color+opacity of line//
         c.strokeStyle = 'rgba(70, 255, 33, .8)';
         //draws everything laid out above//
         c.stroke();
