@@ -9,8 +9,13 @@
         <link rel="stylesheet" type="text/css" href="./pizza_css/pizza.css">
     </head>
     <body>
+
+        <div class="back-img">
+            <img src="./imgs/pizza-pizza.png" width="450px" height="180px">
+        </div>
+
         <div id="menuBG">
-            <h1 style='margin: 0 auto;'>Pizza Drill</h1> <!--margin: 0 0px 0 20px-->
+            <h1 style='margin: 0 auto; padding-bottom: 10px;'>PIZZA DRILL</h1> <!--margin: 0 0px 0 20px-->
             <input id="btnOrder" type="button" onclick="getReceipt()" value="Place Order">
             <form id="frmMenu">
                 <div class="menu left">
@@ -43,6 +48,19 @@
                         value="Anchovy">Anchovy<br>
                     <input class="toppings" type="checkbox" name="Topping"
                         value="Chicken">Chicken<br>
+                </div>
+                <div class="menu center">
+                    <h3>Veggies:</h3>
+                    <input class="toppings" type="checkbox" name="Topping"
+                        value="Mushrooms">Mushrooms<br>
+                    <input class="toppings" type="checkbox" name="Topping"
+                        value="Onions">Onions<br>
+                    <input class="toppings" type="checkbox" name="Topping"
+                        value="Tomatoes">Tomatoes<br>
+                    <input class="toppings" type="checkbox" name="Topping"
+                        value="Olives">Olives<br>
+                    <input class="toppings" type="checkbox" name="Topping"
+                        value="Green Peppers">Green Peppers<br>
                 </div>
                 <div id="cart">
                     <div id="showText"></div>

@@ -1,6 +1,5 @@
 //CURRENT ISSUES//
 //math is mathing
-//toppings come up undefined, no errors spotted in debugger
 
 
 function getReceipt() {
@@ -59,4 +58,5 @@ function getTopping(runningTotal,text1) {
     console.log("Purchase Total: "+" $"+runningTotal+" .00");
     document.getElementById("showText").innerHTML=text1;
     document.getElementById("totalPrice").innerHTML="<h3>Total: <strong>$"+runningTotal+" .00"+"</strong></h3>";
-};
+}; //adds the total and what's been selected at the end//
+//links to cart section ids//
