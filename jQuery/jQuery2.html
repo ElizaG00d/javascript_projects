@@ -6,7 +6,81 @@
     <body>
         <script>
             //jq events and introductions//
-            
+             //event setup using a convencience method//
+            $("p").click("click", function() {
+              console.log("You clicked a paragraph");
+              });
+            //equivalent event setup using the '.on()' method//
+            $("p").on("click", function() {
+              console.log("click");
+            });
+            //notes about more events in notepad//
+            //extending events to new pg elements section//
+            //.on() can only create event listeners on elements that exis in that moment, not after//
+            //events created after not auto pick up set prev//
+            $( document ).ready(function() {
+              //click behaviour set up//
+              $("button.alert").on("click", function() {
+                console.log("A button with the alert class was clicked!");
+              });
+              //button alert after the class was created, will not have the same click behaviour//
+              $("<button class='alert'>Alert!</button>").appendTo( document.body );
+            });
+            //inside the event handler funciton section//
+              //event handling functions recieves an event object//
+            // event setup with on and data//
+            $("input").on(
+              "change",
+              { foo: "bar"}, //bind data to event//
+              function( eventObject ) {
+                console.log("An input value has changed! ", eventObject.data.foo);
+              }); //data that was passed in binding//
+              
+              //has access to dom element bound to//
+              //add this to change to jQuery object to used methods on//
+            //preventing link from being followed example//
+            $("a").click(function( eventObject) {
+              var elem = $( this );
+              if ( elem.attr("href").match(/evil/)) {
+                eventObject.preventDefault();
+                elem.addClass("evil");
+              }
+            });
+          //setting up multiple event responses section//
+            //if multiple events share the same handling function//
+            //can provide event types as seperated list to the on method//
+          //multiple evens w same handler//
+          $("input").on(
+            "click change", //bind for multiple events//
+            function() {
+              console.log("An input was clicked and changed!");
+            });
+          //with differed handlers//
+          $("p").on({
+            "click": function() { console.log("clicked!");},
+            "mouseover": function() {console.log("hovered!");}
+          });
+          //namespace events section//
+            //complex applications to make sure you don't disconnect events you didn't know about//
+          $("p").on( "click.myNamespace", function() { /*...*/});
+          $("p").off("click.myNamespace");
+          $("p").off(".myNamespace"); //unbind all events to namespace//
+          
+          //tearing down event listerners section//
+            //remove event listener with off method//
+            //can isolate to just named function and pass to second argument//
+          //all click handler selection//
+          $("p").off("click");
+          //particular handler using click ref//
+          var foo = function() {console.log("foo");};
+          var bar = function() {console.log("bar");};
+          
+          $("p").on("click", foo ).on("click", bar );
+          $("p").off("click", bar ); //foo still bound to event//
+          
+          //setting up events to run only once section//
+           //one method//
+          
         </script>
     </body>
 </html>
