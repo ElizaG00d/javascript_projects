@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="utf-8">
+    </head>
+    <body>
+
+        <!--img-->
+        <img src="./imgs/dusk.jpg" class="img-large">
+        <!--end img-->
+
+        <!--inline styling start-->
+        <style>
+
+            @keyframes zoom {
+                0% {
+                    transform: scale(1,1);
+                }
+                50% {
+                    transform: scale(1.2,1.2);
+                }
+                100% {
+                    transform: scale(1,1);
+                }
+            }
+
+            .img-large {
+                animation: zoom 20s forwards;
+            }
+
+            /*notes*/
+            /*zoom in and out effect from medium*/
+            /*1.2 used twice, multiplied size of the zoomed out img*/
+            /*zooms img out 20% larger than origin*/
+            /*15s time alloted to complete animation*/
+
+        </style>
+        <!--end inline styling-->
+
+    </body>
+</html>

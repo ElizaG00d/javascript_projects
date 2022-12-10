@@ -1,0 +1,85 @@
+/*currently a height issue going on*/
+/*among other things*/
+
+{box-sizing: border-box}
+
+/*btn to open form, fixed to bottm of pg*/
+.open-btn {
+    background-color: lightsalmon;
+    color: #fff;
+    padding: 16px 20px;
+    border: none;
+    cursor: pointer;
+    opacity: 0.6;
+    position: fixed;
+    top: 23px;
+    right: 28px;
+    width: 280px;
+}
+
+.open-btn:hover {
+    animation: zoom;
+    animation-duration: .5s;
+}
+
+/*popup hidden by default*/
+.popup {
+    display: none;
+    position: fixed;
+    bottom: 0;
+    right: 15px;
+    border: 3px solid black;
+    z-index: 9;
+}
+
+/*conatiner styling*/
+.form-containter {
+    max-width: 300px;
+    padding: 10px;
+    background-color: #fff;
+}
+
+/*full width input fields*/
+.form-containter input[type=text], .form-containter input[type=password] {
+    width: 100%;
+    padding: 15px;
+    margin: 5px 0 22px 0;
+    border: none;
+    background: ;
+}
+
+/*when input get focus, do something*/
+.form-containter input[type=text]:focus, .form-containter
+input[type=password]:focus {
+    background-color: #ddd;
+    outline: none;
+}
+
+/*set style for submit and login*/
+.form-containter .btn {
+    background-color: ;
+    color: #fff;
+    padding: 16px 20px;
+    border: none;
+    cursor: pointer;
+    width: 100%;
+    margin-bottom: 10px;
+    opacity: 0.7;
+}
+
+/*add red background color to cancel button*/
+.form-containter, .cancel {
+    background-color: red;
+}
+
+/*add hover effects to buttons*/
+.form-containter, .btn:hover, .open-btn:hover {
+    opacity: 1;
+}
+
+/*keyframes animation*/
+@keyframes zoom {
+    from{width: auto}
+    to{width: 40%}
+}
+/*apply to animation name*/

@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="utf-8">
+        <link rel="stylesheet" type="text/css" href="./css/form.css">
+        <script src="./js/form.js" defer></script>
+    </head>
+    <body>
+
+        <!--button for popup-->
+        <button class="open-btn" onclick="openForm()">Create An Order</button>
+
+        <!--form w phone # and js validation-->
+        <div class="popup" id="form">
+
+            <form action="/action_page.php" class="form-container" onsubmit="return validation()" method="post">
+                <!--on submit sends the form to the address :0 -->
+                <h1>Login</h1>
+
+                <label for="email"><b>Email:</b></label>
+                <input type="text" placeholder="Email.." name="email" required>
+
+                <label for="psw"><b>Password:</b></label>
+                <input type="password" placeholder="Password..." name="psw" required>
+
+                <label for="phone"><b>Phone:</b></label>
+                <input type="tel" placeholder="Phone Number..." name="phone"> <!--add phone number input-->
+
+                <button type="submit" class="btn">Login</button>
+                <button type="button" class="btn cancel" onclick="closeForm()">Close</button>
+            </form>
+
+        </div>
+
+    </body>
+</html>
