@@ -1,7 +1,6 @@
 //CURRENT ISSUES//
-    //remove function only removes the button above//
-    //can also only happen once apparently//
-    //does not work really at all in vivaldi//
+    //can also only happen once apparently, reload page to delete again//
+    //does not work really at all in chromium browser//
 
 //function gets task from input//
 function get_todos() {
@@ -74,5 +73,9 @@ for (var i = 0; i < btn.length; i++) {
     btn[i].addEventListener('click', remove);
 }; //display after//
 
+//notes:
+//after removing 'form' the remove function worked better?
+//still can only delete once
+//probably need something to reset the function?
 
 
