@@ -1,4 +1,4 @@
-#JAVASCRIPT PROJECTS
+# JAVASCRIPT PROJECTS
 
 ## AJAX
 
@@ -8,6 +8,13 @@
 
 ## Javascript
 
+    #### HTML_1
+        *
+    #### HTML_2
+        *
+    #### HTML_3
+        *
+
 ## jQuery
 
 ## JS Challenges Folder
@@ -16,17 +23,6 @@
 
 ## React Projects
 
-##Tic
+## TicTacToe
 
-#### HTML_1
-    *
-#### HTML_2
-    *
-#### HTML_3
-    *
-    
-
-
-
-
-## 
+## Todo App
