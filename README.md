@@ -1,23 +1,22 @@
 # JAVASCRIPT PROJECTS
+- initial JavaScript projects I've worked on, more basic stuff
 
 ## AJAX
 * contains AJAX projects
-** ajax_basic
-** content
-** and style.css sheet
+- ajax_basic
 
 ## Basic JavaScript Projects
-#### async
-#### project expression alert
-#### project2 functions
-#### project3 math operations
-#### project4 dictionaries
-#### project5 comparisons type coercion
-#### project6 ternary operators constructors
-#### project7 scope time fuction
-#### project8 string methods
-#### project9 countdown slideshow
-#### project10 loops array
+- async
+- project expression alert
+- project2 functions
+- project3 math operations
+- project4 dictionaries
+- project5 comparisons type coercion
+- project6 ternary operators constructors
+- project7 scope time fuction
+- project8 string methods
+- project9 countdown slideshow
+- project10 loops array
 
 ## Calculator
 * contains JavaScript run calculator project
@@ -38,6 +37,7 @@
 
 ## React Projects
 * React projects 1-4 and React files
+  - the beginner React projects
 
 ## TicTacToe
 * tic tac toe project
